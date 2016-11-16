@@ -1,0 +1,3 @@
+@{ 
+    PowerShellTestingHelpers = 'master'
+}

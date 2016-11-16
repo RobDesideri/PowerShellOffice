@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>df49fb03-6372-4e39-9abd-e4f694b67454</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PowerShellOffice</RootNamespace>
+    <AssemblyName>PowerShellOffice</AssemblyName>
+    <Name>PowerShellOffice</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'b' ">
+    <OutputPath>bin\b\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="test\" />
+    <Folder Include="src\" />
+    <Folder Include="src\docs\" />
+    <Folder Include="src\lib\" />
+    <Folder Include="src\script\" />
+    <Folder Include="src\script\private\" />
+    <Folder Include="src\script\public\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InstallPSDepend.ps1" />
+    <Compile Include="ScriptAnalyzerSettings.psd1" />
+    <Compile Include="src\PowerShellOffice.psd1" />
+    <Compile Include="src\PowerShellOffice.psm1" />
+    <Compile Include="src\script\private\Get-AllDocx.ps1" />
+    <Compile Include="src\script\private\Get-BindingFlag.ps1" />
+    <Compile Include="src\script\private\Get-Metadata-As-Csv.ps1" />
+    <Compile Include="src\script\private\Get-WordProc.ps1" />
+    <Compile Include="src\script\private\New-Generic-List.ps1" />
+    <Compile Include="src\script\private\New-Word-Application.ps1" />
+    <Compile Include="src\script\private\Set-Output.ps1" />
+    <Compile Include="src\script\private\Stop-OfficeProcess.ps1" />
+    <Compile Include="src\script\public\Get-DocxMetadata.ps1" />
+    <Compile Include="test\InstallTestingDepends.ps1" />
+    <Compile Include="test\PowerShellOffice.tests.ps1" />
+    <Compile Include="test\PowerShellOffice.private.tests.ps1" />
+    <Compile Include="test\PowerShellOffice.public.tests.ps1" />
+    <Compile Include="test\shared.ps1" />
+    <Compile Include="test\TestDepends.psd1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+    <Content Include="README.md" />
+    <Content Include="ReleaseNotes.md" />
+    <Content Include="src\README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="Build" />
+</Project>
