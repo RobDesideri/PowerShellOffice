@@ -1,3 +1,3 @@
 @{ 
-    PowerShellTestingHelpers = 'master'
+    'RobDesideri/PowerShellTestingHelpers' = 'develop'
 }
