@@ -87,6 +87,7 @@
     <Content Include="test\resources\data\README.md" />
     <Content Include="test\resources\filesystem\README.md" />
     <Content Include="test\resources\mock\README.md" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

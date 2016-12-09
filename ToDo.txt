@@ -1,0 +1,5 @@
+Implementare GitDowFolder (quando pronto) per la dipendenza da PowerShellTestingHelpers nella cartella test.
+
+Creare dei test
+
+Tutto da verificare
