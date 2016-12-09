@@ -1,7 +1,7 @@
 # Import testing helpers dependencies
-& "$PSScriptRoot\InstallTestingDepends.ps1"
-Import-Module "$PSScriptRoot\lib\PowerShellTestingHelpers"
-$ModuleManifestName = 'PowerShellOffice.psd1'
+& "$PSScriptRoot\SharedSetup.ps1"
+
+$ModuleManifestName = '$safeprojectname$.psd1'
 $ModuleManifestPath = "$PSScriptRoot\..\src\$ModuleManifestName"
 
 if (!$SuppressImportModule) {

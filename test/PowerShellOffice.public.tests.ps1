@@ -1,19 +1,20 @@
-﻿# Import testing helpers dependencies
-& "$PSScriptRoot\InstallTestingDepends.ps1"
-Import-Module "$PSScriptRoot\lib\PowerShellTestingHelpers"
-#Get all public functions
-$Public = @( Get-ChildItem -Path $PSScriptRoot\..\src\script\public\*.ps1 -ErrorAction SilentlyContinue )
-Foreach($import in @($Public))
+﻿# Import testing resources
+& "$PSScriptRoot\SharedSetup.ps1"
+$fp = "$PSScriptRoot\..\src\script\public\*.ps1"
+$fpCollection = @( Get-ChildItem -Path $fp -ErrorAction SilentlyContinue )
+Foreach($import in @($fpCollection))
 {
-    Try
-    {
-        . $import.fullname
-    }
-    Catch
-    {
-        Write-Error -Message "Failed to import function $($import.fullname): $_"
-    }
+	Try
+	{
+		. $import.FullName
+	}
+	Catch
+	{
+		Write-Error -Message "Failed to import function $($import.fullname): $_"
+	}
 }
+
+#Test begin!
 
 Describe "PowerShellOfficePublicFunctions" {
 	Context "Exists" {

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="docs\" />
+    <Folder Include="lib\" />
     <Folder Include="test\" />
     <Folder Include="src\" />
     <Folder Include="src\docs\" />
@@ -40,6 +41,15 @@
     <Folder Include="src\script\" />
     <Folder Include="src\script\private\" />
     <Folder Include="src\script\public\" />
+    <Folder Include="test\lib\" />
+    <Folder Include="test\lib\PowerShellTestingHelpers\" />
+    <Folder Include="test\lib\PowerShellTestingHelpers\script\" />
+    <Folder Include="test\lib\PowerShellTestingHelpers\script\public\" />
+    <Folder Include="test\resources\" />
+    <Folder Include="test\resources\constant\" />
+    <Folder Include="test\resources\data\" />
+    <Folder Include="test\resources\filesystem\" />
+    <Folder Include="test\resources\mock\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InstallPSDepend.ps1" />
@@ -56,9 +66,16 @@
     <Compile Include="src\script\private\Stop-OfficeProcess.ps1" />
     <Compile Include="src\script\public\Get-DocxMetadata.ps1" />
     <Compile Include="test\InstallTestingDepends.ps1" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\PowerShellTestingHelpers.psd1" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\PowerShellTestingHelpers.psm1" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\README.md" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\script\public\Get-FakeFileList.ps1" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\script\public\Get-FakeProcessList.ps1" />
+    <Compile Include="test\lib\PowerShellTestingHelpers\script\public\Get-FakeRandomPid.ps1" />
     <Compile Include="test\PowerShellOffice.tests.ps1" />
     <Compile Include="test\PowerShellOffice.private.tests.ps1" />
     <Compile Include="test\PowerShellOffice.public.tests.ps1" />
+    <Compile Include="test\SharedSetup.ps1" />
     <Compile Include="test\TestDepends.psd1" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +83,10 @@
     <Content Include="README.md" />
     <Content Include="ReleaseNotes.md" />
     <Content Include="src\README.md" />
+    <Content Include="test\resources\constant\README.md" />
+    <Content Include="test\resources\data\README.md" />
+    <Content Include="test\resources\filesystem\README.md" />
+    <Content Include="test\resources\mock\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

@@ -1,22 +1,20 @@
-﻿# Import testing helpers dependencies
-& "$PSScriptRoot\InstallTestingDepends.ps1"
-Import-Module "$PSScriptRoot\lib\PowerShellTestingHelpers"
-#Get all private functions
-$Private = @( Get-ChildItem -Path $PSScriptRoot\..\src\script\private\*.ps1 -ErrorAction SilentlyContinue )
+﻿# Import testing resources
+& "$PSScriptRoot\SharedSetup.ps1"
+$fp = "$PSScriptRoot\..\src\script\private\*.ps1"
+$fpCollection = @( Get-ChildItem -Path $fp -ErrorAction SilentlyContinue )
+Foreach($import in @($fpCollection))
+{
+	Try
+	{
+		. $import.FullName
+	}
+	Catch
+	{
+		Write-Error -Message "Failed to import function $($import.fullname): $_"
+	}
+}
 
-#Dot source the files
-    Foreach($import in @($Private))
-    {
-        Try
-        {
-            . $import.fullname
-        }
-        Catch
-        {
-            Write-Error -Message "Failed to import function $($import.fullname): $_"
-        }
-    }
-
+#Test begin!
 
 Describe "Stop-OfficeProcess" {
 	$stword = [System.Diagnostics.Process]::pr
